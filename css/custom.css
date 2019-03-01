@@ -1,0 +1,6 @@
+#carouselButtons {
+  margin-left: 100px;
+  position: absolute;
+  bottom: 20px;
+  z-index: 9999;
+}
