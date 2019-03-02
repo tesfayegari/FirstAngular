@@ -4,9 +4,7 @@
 
   mtmDemo.factory('svc', ['$http', '$q', function ($http, $q) {
     var _webAbsoluteUrl = 'testURL';//_spPageContextInfo.webAbsoluteUrl;
-    var _getConfig = {
-      headers: { 'accept': 'application/json;odata=verbose' }
-    };
+   
     //RequestHeader for get,post,update,delete
     var requestHeader = {
       getHeader: {
@@ -42,13 +40,13 @@
     function _getLisItems(urlValue) {
       return $http.get(urlValue, requestHeader.getHeader)
         .then(function (response) {
-          return response.data.d.results;
+          return response.data.d.results; //TODO: View in Console
         });
     };
 
     function _getListItem(endpoint) {
       return $http.get(endpoint, requestHeader.getHeader).then(function (response) {
-        return response.data.d;
+        return response.data.d;//Todo: View in browser
       });
     };
 
@@ -80,7 +78,11 @@
     return {
       getTemplateUrl: function(temlateName){
         return '/views/' + temlateName;
+      },
+      alertName: function(name){
+        alert(name);
       }
+
     };//End of Service Return
 
   }]);//ends svc function
