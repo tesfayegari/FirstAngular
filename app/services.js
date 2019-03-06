@@ -3,7 +3,7 @@
   'use strict';
 
   mtmDemo.factory('svc', ['$http', '$q', function ($http, $q) {
-    var _webAbsoluteUrl = 'testURL';//_spPageContextInfo.webAbsoluteUrl;
+    var _webAbsoluteUrl = _spPageContextInfo.webAbsoluteUrl;
    
     //RequestHeader for get,post,update,delete
     var requestHeader = {
@@ -77,10 +77,14 @@
 
     return {
       getTemplateUrl: function(temlateName){
-        return '/views/' + temlateName;
+        return '/sites/demo/SiteAssets/firstAngular/views/' + temlateName;
       },
-      alertName: function(name){
-        alert(name);
+      getAccordion: function(listName){
+        var url = _webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listName+"')/items";
+        return _getLisItems(url).then(function(response){
+          //console.log(response);
+          return response;
+        });
       }
 
     };//End of Service Return
