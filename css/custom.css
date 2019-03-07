@@ -9,3 +9,16 @@
   /* symbol for "collapsed" panels */
   content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
+.item img{
+  max-height: 600px;
+  min-height: 600px;
+}
+div#s4-titlerow {
+  display:none !important;
+}
+#contentRow {
+  padding-top: 0px !important;
+}
+.col-sm-9.mtmCarosal {
+  padding: 0px;
+}

@@ -79,8 +79,9 @@
       getTemplateUrl: function(temlateName){
         return '/sites/demo/SiteAssets/firstAngular/views/' + temlateName;
       },
-      getAccordion: function(listName){
-        var url = _webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listName+"')/items";
+      getItems: function(listName, filter){
+        if(!filter)filter = '';
+        var url = _webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listName+"')/items" + filter;
         return _getLisItems(url).then(function(response){
           //console.log(response);
           return response;
