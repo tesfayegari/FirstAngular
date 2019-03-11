@@ -86,6 +86,20 @@
           //console.log(response);
           return response;
         });
+      },
+      getAllItems: function(listName){        
+        var url = _webAbsoluteUrl + "/_api/web/lists/getbytitle('"+listName+"')/items";
+        return _getLisItems(url).then(function(response){
+          //console.log(response);
+          return response;
+        });
+      },
+      getAllItemsFromSite: function(listName,siteurl){        
+        var url = siteurl.replace(/\/$/, "") + "/_api/web/lists/getbytitle('"+listName+"')/items";
+        return _getLisItems(url).then(function(response){
+          //console.log(response);
+          return response;
+        });
       }
 
     };//End of Service Return
